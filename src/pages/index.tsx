@@ -14,6 +14,7 @@ import { ChallengesProvider } from "../context/ChallengesContext";
 import { useEffect, useState } from "react";
 
 import { ModalChallenges } from "../components/ModalChallenges";
+import { Header } from "../components/Header";
 
 interface HomeProps {
   level: number;
@@ -34,25 +35,29 @@ export default function Home(props: HomeProps) {
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
     >
-      <div className={styles.container}>
+      <div className={styles.homeCotainer}>
         <Head>
           <title>Início | move.it</title>
         </Head>
-        <ExperienceBar />
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div className={styles.challengeBox}>
-              <ChallengeBox />
-            </div>
-            {screenWidth < 960 ? <ModalChallenges /> : null}
-          </section>
-        </CountdownProvider>
+        <Header />
+
+        <div className={styles.container}>
+          <ExperienceBar />
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div className={styles.challengeBox}>
+                <ChallengeBox />
+              </div>
+              {screenWidth < 960 ? <ModalChallenges /> : null}
+            </section>
+          </CountdownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   );
@@ -65,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {
       level: Number(level),
       currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
-    },
+      challengesCompleted: Number(challengesCompleted)
+    }
   };
 };

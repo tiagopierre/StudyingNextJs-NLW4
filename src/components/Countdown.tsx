@@ -10,7 +10,7 @@ export function Countdown() {
     hasFinished,
     isActive,
     startCountdown,
-    resetCountDown,
+    resetCountDown
   } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, "0").split("");
@@ -50,7 +50,10 @@ export function Countdown() {
               className={styles.countdownButton}
               onClick={startCountdown}
             >
-              Iniciar um ciclo
+              <span>
+                Iniciar um ciclo{" "}
+                <img src="/icons/play_arrow.svg" alt="Play arrow" />
+              </span>
             </button>
           )}
         </>
