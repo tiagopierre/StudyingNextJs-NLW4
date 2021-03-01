@@ -1,29 +1,56 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ChallengesContext } from "../context/ChallengesContext";
 import { CountdownContext } from "../context/CountdownContext";
 import styles from "../styles/components/ChallengeBox.module.css";
+import { Modal } from "./Modal";
+
+import thumbDown from "../../public/3983-thumbs-down.json";
+
+import thumbUp from "../../public/3982-thumbs-up.json";
+
+import Lottie from "react-lottie";
 
 export function ChallengeBox() {
   const { activeChallenge, resetChallenge, completeChallenge } = useContext(
     ChallengesContext
   );
 
+  const [isActiveModalThumbs, setIsActiveModalThumbs] = useState(null);
+
   const { resetCountDown } = useContext(CountdownContext);
 
   const { closeModalChallenge } = useContext(ChallengesContext);
 
+  function openModalThumbsUp() {
+    setIsActiveModalThumbs(true);
+  }
+  function openModalThumbsDown() {
+    setIsActiveModalThumbs(false);
+  }
+  function closeModalThumbs() {
+    setIsActiveModalThumbs(null);
+  }
+
   function handleChallengeSucceeded() {
+    openModalThumbsUp();
     completeChallenge();
     resetCountDown();
     new Audio("./success.mp3").play();
-    closeModalChallenge();
+    setTimeout(() => {
+      closeModalChallenge();
+      closeModalThumbs();
+    }, 1000);
   }
 
   function handlechallengeFailed() {
+    openModalThumbsDown();
     resetChallenge();
     resetCountDown();
     new Audio("./failed.mp3").play();
-    closeModalChallenge();
+    setTimeout(() => {
+      closeModalChallenge();
+      closeModalThumbs();
+    }, 1000);
   }
 
   return (
@@ -63,6 +90,16 @@ export function ChallengeBox() {
           </p>
         </div>
       )}
+
+      {isActiveModalThumbs ? (
+        <Modal>
+          <Lottie options={{ autoplay: true, animationData: thumbUp }} />
+        </Modal>
+      ) : isActiveModalThumbs === false ? (
+        <Modal>
+          <Lottie options={{ autoplay: true, animationData: thumbDown }} />
+        </Modal>
+      ) : null}
     </div>
   );
 }
