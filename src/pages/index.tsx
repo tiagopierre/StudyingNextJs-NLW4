@@ -10,7 +10,13 @@ import styles from "../styles/pages/Home.module.css";
 import { ChallengeBox } from "../components/ChallengeBox";
 import { CountdownProvider } from "../context/CountdownContext";
 import { Countdown } from "../components/Countdown";
-import { ChallengesProvider } from "../context/ChallengesContext";
+import {
+  ChallengesContext,
+  ChallengesProvider,
+} from "../context/ChallengesContext";
+import { useContext, useEffect, useState } from "react";
+import { Modal } from "../components/Modal";
+import { ModalChallenges } from "../components/ModalChallenges";
 
 interface HomeProps {
   level: number;
@@ -19,6 +25,14 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
+  const { isModalChallenge } = useContext(ChallengesContext);
+
+  const [screenWidth, setScreenWidth] = useState(null);
+
+  useEffect(() => {
+    setScreenWidth(screen.width);
+  });
+
   return (
     <ChallengesProvider
       level={props.level}
@@ -38,9 +52,10 @@ export default function Home(props: HomeProps) {
               <CompletedChallenges />
               <Countdown />
             </div>
-            <div>
+            <div className={styles.challengeBox}>
               <ChallengeBox />
             </div>
+            {screenWidth < 960 ? <ModalChallenges /> : null}
           </section>
         </CountdownProvider>
       </div>

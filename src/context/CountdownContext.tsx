@@ -25,9 +25,11 @@ let countdownTimeout: NodeJS.Timeout;
 export const CountdownContext = createContext({} as CountdownContextData);
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-  const { startNewChallenge } = useContext(ChallengesContext);
+  const { startNewChallenge, openModalChallenge } = useContext(
+    ChallengesContext
+  );
 
-  const [time, setTime] = useState(0.1 * 60);
+  const [time, setTime] = useState(2);
   const [isActive, setIsActive] = useState(false);
 
   const minutes = Math.floor(time / 60);
@@ -55,6 +57,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
       setHasFinished(true);
       setIsActive(false);
       startNewChallenge();
+      openModalChallenge();
     }
   }, [isActive, time]);
 

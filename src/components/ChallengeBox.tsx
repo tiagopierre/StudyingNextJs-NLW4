@@ -10,16 +10,20 @@ export function ChallengeBox() {
 
   const { resetCountDown } = useContext(CountdownContext);
 
+  const { closeModalChallenge } = useContext(ChallengesContext);
+
   function handleChallengeSucceeded() {
     completeChallenge();
     resetCountDown();
     new Audio("./success.mp3").play();
+    closeModalChallenge();
   }
 
   function handlechallengeFailed() {
     resetChallenge();
     resetCountDown();
     new Audio("./failed.mp3").play();
+    closeModalChallenge();
   }
 
   return (
