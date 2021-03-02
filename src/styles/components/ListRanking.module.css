@@ -1,12 +1,79 @@
 .RankingContainer {
   padding: 2.5rem 2rem;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
+  max-width: 992px;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+  -moz-animation: fadeIn 0.5s ease-in-out;
+  -o-animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .RankingContainer > div {
-  margin-top: 96px;
+  margin-top: 30px;
 
   overflow: auto;
+}
+
+.RankingContainer ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.RankingContainer ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--gray-line);
+  border-radius: 10px;
+}
+
+/* Handle */
+.RankingContainer ::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.RankingContainer ::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-dark);
+}
+
+@media (max-width: 720px) {
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

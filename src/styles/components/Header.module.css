@@ -12,7 +12,7 @@
   padding: 2rem 0rem;
 
   max-width: 112px;
-  min-width: 82px;
+  min-width: 111px;
 }
 
 .headerContainer div {
@@ -56,4 +56,64 @@
 .isActive img {
   width: 28px;
   height: 28px;
+}
+
+.logout {
+  background: var(--white);
+
+  border: none;
+  border-left: solid 4px var(--white);
+
+  width: 100%;
+
+  outline: none;
+
+  transition: filter 0.2s;
+}
+
+.logout img {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 720px) {
+  .headerContainer {
+    background: var(--white);
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    filter: drop-shadow(0 0mm 2mm rgb(89, 101, 224));
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0rem 2rem;
+
+    max-width: 100%;
+    min-width: 100%px;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .headerContainer menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .isActive {
+    background: var(--white);
+    margin: 0rem 1rem;
+    border: none;
+
+    border-bottom: solid 4px var(--blue);
+
+    padding: 1rem;
+    width: 100%;
+    outline: none;
+  }
+  .isNotActive {
+    margin: 0rem 1rem;
+  }
 }

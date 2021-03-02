@@ -48,7 +48,11 @@ export function Header(props: HeaderProps) {
         </Link>
       </menu>
 
-      <div />
+      <div>
+        <button className={styles.logout} type="button">
+          <img src="/icons/logout.svg" alt="Award enabled" />
+        </button>
+      </div>
     </header>
   );
 }

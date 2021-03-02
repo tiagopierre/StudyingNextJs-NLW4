@@ -77,14 +77,23 @@ export function ChallengesProvider({
     new Audio("/notification.mp3").play();
 
     if (Notification.permission === "granted") {
-      let notification = new Notification("Novo desafio 🔥🔥🔥", {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.showNotification("Novo desafio 🔥🔥🔥", {
+          body: `Valendo ${challenge.amount}xp!`,
+          icon: "/favicon.png",
+          vibrate: [200, 100, 200, 100, 200, 100, 400]
+        });
+      });
+
+      /*let notification = new Notification("Novo desafio 🔥🔥🔥", {
         body: `Valendo ${challenge.amount}xp!`,
         icon: "/favicon.png",
+        vibrate: [200, 100, 200, 100, 200, 100, 400]
       });
       notification.onclick = (event) => {
         event.preventDefault();
         window.open("http://localhost:3000", "_blank");
-      };
+      };*/
     }
   }
 
@@ -138,7 +147,7 @@ export function ChallengesProvider({
         closeLevelModal,
         closeModalChallenge,
         openModalChallenge,
-        isModalChallenge,
+        isModalChallenge
       }}
     >
       {children}

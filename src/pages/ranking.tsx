@@ -13,6 +13,8 @@ export default function Ranking() {
       <Header pageActive="Ranking" />
 
       <ListRanking />
+
+      <div />
     </header>
   );
 }

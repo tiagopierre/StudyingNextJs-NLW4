@@ -18,8 +18,14 @@ export function CardUserRanking() {
             </div>
           </div>
           <div className={styles.experience}>
-            <p>127 completados</p>
-            <p>154000 xp</p>
+            <p>
+              {" "}
+              <span>127</span> completados
+            </p>
+            <p>
+              {" "}
+              <span>154000</span> xp
+            </p>
           </div>
         </div>
       </div>

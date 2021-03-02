@@ -1,5 +1,5 @@
 .containerCardUserRanking {
-  margin: 1rem;
+  margin: 0rem 1rem 1rem 0rem;
 }
 
 .containerCardUserRanking > div {
@@ -10,8 +10,8 @@
 .position {
   background: var(--white);
 
-  width: 72px;
-  height: 96px;
+  width: 6rem;
+  height: 7rem;
 
   display: flex;
   align-items: center;
@@ -24,8 +24,9 @@
 .details {
   background: var(--white);
 
-  height: 96px;
-  margin-left: 8px;
+  width: 6rem;
+  height: 7rem;
+  margin-left: 0.5rem;
 
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -43,8 +44,8 @@
   flex-direction: row;
 }
 .details > div > img {
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
 }
 
@@ -72,8 +73,85 @@
   margin: 0px 2rem;
 }
 
-@media (max-width: 1080px) {
-  .experience {
+.experience p span {
+  color: var(--blue);
+}
+
+@media (max-width: 960px) {
+  .details .experience p:first-child {
     display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .position {
+    background: var(--white);
+
+    width: 3rem;
+    height: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .details {
+    background: var(--white);
+
+    width: 3rem;
+    height: 4rem;
+    margin-left: 0.5rem;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+    display: flex;
+    padding: 0px 1rem;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .details > div > img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+
+  .profile {
+    margin-left: 0.5rem;
+  }
+
+  .profile strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--title);
+  }
+
+  .profile p {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .profile p img {
+    height: 0.8rem;
+    width: 0.8rem;
+    margin-right: 0.05rem;
+  }
+  .experience p {
+    margin: 0px 0rem;
+  }
+
+  .experience p span {
+    color: var(--blue);
+  }
+}
+
+@media (max-width: 350px) {
+  .details .experience p:last-child {
+    display: none;
+  }
+  .details {
+    justify-content: center;
   }
 }
