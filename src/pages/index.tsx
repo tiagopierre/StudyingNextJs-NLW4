@@ -1,20 +1,16 @@
-import { CompletedChallenges } from "../components/CompletedChallenges";
-import { ExperienceBar } from "../components/ExperienceBar";
-import { Profile } from "../components/Profile";
-
 import Head from "next/head";
 
 import { GetServerSideProps } from "next";
 
 import styles from "../styles/pages/Home.module.css";
-import { ChallengeBox } from "../components/ChallengeBox";
-import { CountdownProvider } from "../context/CountdownContext";
-import { Countdown } from "../components/Countdown";
-import { ChallengesProvider } from "../context/ChallengesContext";
-import { useEffect, useState } from "react";
 
-import { ModalChallenges } from "../components/ModalChallenges";
+import { CountdownProvider } from "../context/CountdownContext";
+import { HeaderProvider } from "../context/HeaderContext";
+
+import { ChallengesProvider } from "../context/ChallengesContext";
+
 import { Header } from "../components/Header";
+import { InitialPage } from "../components/InitialPage";
 
 interface HomeProps {
   level: number;
@@ -23,43 +19,26 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-  const [screenWidth, setScreenWidth] = useState(null);
-
-  useEffect(() => {
-    setScreenWidth(screen.width);
-  }, []);
-
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.homeCotainer}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
+    <HeaderProvider>
+      <ChallengesProvider
+        level={props.level}
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
+      >
+        <CountdownProvider>
+          <div className={styles.homeCotainer}>
+            <Head>
+              <title>Início | move.it</title>
+            </Head>
 
-        <Header />
+            <Header />
 
-        <div className={styles.container}>
-          <ExperienceBar />
-          <CountdownProvider>
-            <section>
-              <div>
-                <Profile />
-                <CompletedChallenges />
-                <Countdown />
-              </div>
-              <div className={styles.challengeBox}>
-                <ChallengeBox />
-              </div>
-              {screenWidth < 960 ? <ModalChallenges /> : null}
-            </section>
-          </CountdownProvider>
-        </div>
-      </div>
-    </ChallengesProvider>
+            <InitialPage />
+          </div>
+        </CountdownProvider>
+      </ChallengesProvider>
+    </HeaderProvider>
   );
 }
 

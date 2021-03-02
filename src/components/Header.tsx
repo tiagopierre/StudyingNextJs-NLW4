@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { HeaderContext } from "../context/HeaderContext";
 import styles from "../styles/components/Header.module.css";
 
 const home = "/icons/home.svg";
@@ -8,15 +9,9 @@ const awards = "/icons/award.svg";
 const awardsActive = "/icons/awardActive.svg";
 
 export function Header() {
-  const [pageActive, setPageActive] = useState("Home");
-
-  function navigationHome() {
-    setPageActive("Home");
-  }
-
-  function navigationLeaderboard() {
-    setPageActive("Leaderboard");
-  }
+  const { pageActive, navigationLeaderboard, navigationHome } = useContext(
+    HeaderContext
+  );
 
   return (
     <header className={styles.headerContainer}>

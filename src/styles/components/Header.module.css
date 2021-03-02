@@ -12,6 +12,7 @@
   padding: 2rem 0rem;
 
   max-width: 112px;
+  min-width: 82px;
 }
 
 .headerContainer div {
