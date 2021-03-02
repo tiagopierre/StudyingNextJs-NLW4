@@ -5,7 +5,6 @@ import { GetServerSideProps } from "next";
 import styles from "../styles/pages/Home.module.css";
 
 import { CountdownProvider } from "../context/CountdownContext";
-import { HeaderProvider } from "../context/HeaderContext";
 
 import { ChallengesProvider } from "../context/ChallengesContext";
 
@@ -20,25 +19,23 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <HeaderProvider>
-      <ChallengesProvider
-        level={props.level}
-        currentExperience={props.currentExperience}
-        challengesCompleted={props.challengesCompleted}
-      >
-        <CountdownProvider>
-          <div className={styles.homeCotainer}>
-            <Head>
-              <title>Início | move.it</title>
-            </Head>
+    <ChallengesProvider
+      level={props.level}
+      currentExperience={props.currentExperience}
+      challengesCompleted={props.challengesCompleted}
+    >
+      <CountdownProvider>
+        <div className={styles.homeCotainer}>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
 
-            <Header />
+          <Header pageActive="Home" />
 
-            <InitialPage />
-          </div>
-        </CountdownProvider>
-      </ChallengesProvider>
-    </HeaderProvider>
+          <InitialPage />
+        </div>
+      </CountdownProvider>
+    </ChallengesProvider>
   );
 }
 

@@ -1,0 +1,79 @@
+.containerCardUserRanking {
+  margin: 1rem;
+}
+
+.containerCardUserRanking > div {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+.position {
+  background: var(--white);
+
+  width: 72px;
+  height: 96px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.details {
+  background: var(--white);
+
+  height: 96px;
+  margin-left: 8px;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  align-items: center;
+  display: flex;
+  padding: 0px 1rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.details > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.details > div > img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.profile {
+  margin-left: 1.5rem;
+}
+
+.profile strong {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title);
+}
+
+.profile p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.profile p img {
+  font-size: 0.1rem;
+  margin-right: 0.5rem;
+}
+
+.experience p {
+  margin: 0px 2rem;
+}
+
+@media (max-width: 1080px) {
+  .experience {
+    display: none;
+  }
+}
