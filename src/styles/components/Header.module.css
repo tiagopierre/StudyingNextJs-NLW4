@@ -74,6 +74,8 @@
 .logout img {
   width: 32px;
   height: 32px;
+  border: none;
+  border-bottom: solid 4px var(--white);
 }
 
 @media (max-width: 720px) {
@@ -115,5 +117,7 @@
   }
   .isNotActive {
     margin: 0rem 1rem;
+    border: none;
+    border-bottom: solid 4px var(--white);
   }
 }
