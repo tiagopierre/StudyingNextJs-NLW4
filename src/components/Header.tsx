@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import styles from "../styles/components/Header.module.css";
 
+import { BsHouseFill, BsAward, BsPower } from "react-icons/bs";
+
 const home = "/icons/home.svg";
 const homeActive = "/icons/homeActive.svg";
 
@@ -25,9 +27,9 @@ export function Header(props: HeaderProps) {
             }
             type="button"
           >
-            <img
-              src={props.pageActive === "Home" ? homeActive : home}
-              alt="Home enable"
+            <BsHouseFill
+              size={30}
+              color={props.pageActive === "Home" ? "#5965E0" : "#666666"}
             />
           </button>
         </Link>
@@ -40,9 +42,9 @@ export function Header(props: HeaderProps) {
             }
             type="button"
           >
-            <img
-              src={props.pageActive === "Ranking" ? awardsActive : awards}
-              alt="Award enabled"
+            <BsAward
+              size={30}
+              color={props.pageActive === "Home" ? "#666666" : "#5965E0"}
             />
           </button>
         </Link>
@@ -50,7 +52,7 @@ export function Header(props: HeaderProps) {
 
       <div>
         <button className={styles.logout} type="button">
-          <img src="/icons/logout.svg" alt="Award enabled" />
+          <BsPower size={30} color="#E83F5B" />
         </button>
       </div>
     </header>
