@@ -54,9 +54,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.countdownButton span img {
   margin-bottom: -2.7px;
   margin-left: 10px;
 }
@@ -68,6 +65,14 @@
 .countdownButtonActive {
   background: var(--white);
   color: var(--title);
+}
+
+.countdownButtonActive span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -2.7px;
+  margin-left: 10px;
 }
 
 .countdownButtonActive:not(:disabled):hover {

@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { CountdownContext } from "../context/CountdownContext";
 import styles from "../styles/components/Countdown.module.css";
 
+import { BsCaretRightFill, BsXCircleFill, BsCheckAll } from "react-icons/bs";
+
 export function Countdown() {
   const {
     minutes,
@@ -33,6 +35,9 @@ export function Countdown() {
       {hasFinished ? (
         <button disabled className={`${styles.countdownButton}`}>
           Ciclo encerrado
+          <span>
+            <BsCheckAll size={20} color="#4cd62b" />
+          </span>
         </button>
       ) : (
         <>
@@ -43,6 +48,9 @@ export function Countdown() {
               onClick={resetCountDown}
             >
               Abandonar ciclo
+              <span>
+                <BsXCircleFill size={20} color="#E83F5B" />
+              </span>
             </button>
           ) : (
             <button
@@ -50,9 +58,9 @@ export function Countdown() {
               className={styles.countdownButton}
               onClick={startCountdown}
             >
+              Iniciar um ciclo
               <span>
-                Iniciar um ciclo{" "}
-                <img src="/icons/play_arrow.svg" alt="Play arrow" />
+                <BsCaretRightFill size={20} />
               </span>
             </button>
           )}

@@ -1,0 +1,118 @@
+.loginContainer {
+  background: var(--blue);
+  height: 100vh;
+}
+
+.loginContainer section {
+  padding: 5rem;
+  background: url("/icons/Simbolo.svg") no-repeat center;
+  background-size: contain;
+  height: 100%;
+  background-position: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loginContainer section img {
+  width: 30rem;
+}
+
+.loginContainer section h1 {
+  font-size: 2.4rem;
+  color: var(--white);
+  margin-top: 5rem;
+  text-align: left;
+}
+
+.loginContainer div:first-child {
+  max-width: 50%;
+}
+
+.loginContainer div p {
+  color: var(--text-highlight);
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.loginContainer button {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.5rem 0.5rem;
+  transition: filter 0.2s;
+}
+
+.loginContainer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer button:hover {
+  filter: brightness(0.9);
+}
+
+.buttonGoogle {
+  background: var(--red);
+}
+.buttonFacebook {
+  background: var(--blue-dark);
+}
+
+@media (max-width: 960px) {
+  .loginContainer section h1 {
+    margin-top: 2rem;
+  }
+  .loginContainer div:first-child {
+    max-width: 70%;
+  }
+}
+@media (max-width: 860px) {
+  .loginContainer section img {
+    width: 25rem;
+  }
+  .loginContainer div:first-child {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginContainer div:first-child {
+    max-width: 90%;
+  }
+  .loginContainer section {
+    padding: 0rem 2rem;
+    background: url("/icons/Simbolo.svg") no-repeat center;
+    background-size: contain;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .loginContainer section div:first-child {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 79vh;
+    max-width: 80vh;
+  }
+}
+
+@media (max-width: 472px) {
+  .loginContainer div:first-child {
+    max-width: 100%;
+  }
+  .loginContainer section img {
+    width: 20rem;
+  }
+}
